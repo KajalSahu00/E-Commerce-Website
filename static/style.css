@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar {
+    background: linear-gradient(rgb(13, 218, 156), rgb(44, 182, 228));
+    padding: 20px 5px;
+    display: block;
+    width: 100%;
+}
+.navbar li {
+    list-style-type: none;
+    display: inline;
+    padding: 0px 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+#company {
+    font-size: 40px;
+    font-weight: 5px;
+    font-family: 'Times New Roman', Times, serif; 
+    padding-right: 50px;
+}
+.login {
+    float:right;
+    padding: 10px;
+}
+.navbar li a {
+    text-decoration: none;
+    color: white;
+}
+.navbar li label {
+    text-decoration: none;
+    color: white;
+}
+.navbar li a:hover {
+    color: black;
+    text-decoration: underline;
+}
+.navbar li label:hover {
+    color: black;
+    text-decoration: underline;
+}
+.search {
+    height: 40px;
+    width: 200px;
+    border-style: solid;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+.grid-container {
+    display: grid;
+    margin: 20px;
+    grid-template-columns: auto auto auto;
+    justify-content: space-evenly;
+    overflow: auto;
+}
+.grid-item {
+    background-color: white;
+    width: 300px;
+    height: 500px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid black;
+    overflow: auto;
+    position: relative;
+}
+.AddToCart {
+    width: 90%;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+.dropbtn {
+    height: 40px;
+    width: 200px;
+    border-style: solid;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+.big {
+    width: 100%;
+    height: 200px;
+}
+.grid-item:hover {
+    transform: translateY(5px);
+    border: 2px solid black;
+}

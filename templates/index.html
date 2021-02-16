@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if messages %} 
+<ul class='messages'>
+    {% for message in messages %}
+        <h2><li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li></h2>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="grid-container">
+  {% for product in products %}
+    <div class="grid-item" id={{product.id}}>
+        <img src="{{product.image.url}}" alt="hello" style='width:100px' class='big'>
+        <div class="container">
+          <h3>{{ product.name }}</h3>
+          <br>
+          <p>{{ product.description }}</p>
+          <br>
+          <p class="pink">Price: Rs {{ product.price }}</p>
+        </div>
+        <br>
+        <br>
+        <form action="/#{{product.id}}" method="post">
+          {% csrf_token %}
+          <input hidden type="text" value="{{ product.id }}" name="product_id">
+          <input type="submit" value="Add to Cart" class="AddToCart">
+        </form>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+{% load cart %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'account.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'cart.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <ul class = "navbar">
+            <li id="company">FOREVER</li>
+            <li><a href="{% url 'products:index' %}">Home</a></li>
+            <li>
+                {% for category in categories %}
+                    <a href="/?category={{category.id}}">{{ category.name }}</a>
+                {% endfor %}
+            </li>
+            <input type="text" value="Search" class="search">
+            {% if request.session.customer %}
+            <li class="login"><a href="{% url 'logout' %}">Logout</a></li>
+            <li class="login"><a href="{% url 'orders:orderview' %}">Your Orders</a></li>
+            {% else %}
+            <li class="login"><a href="{% url 'account' %}">Login or Signup</a></li>
+            {% endif %}
+            <li class="login"><a href="{% url 'products:cart' %}">Cart({{request.session.cart.keys|length}})</a></li>
+        </ul>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

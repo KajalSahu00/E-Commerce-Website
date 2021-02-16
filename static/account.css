@@ -1,0 +1,29 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    background: pink;
+}
+.account {
+    background: white;
+    color: black;
+    width: 400px;
+    height: 400px;
+    padding: 50px;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transform: translate(150%, 5%);
+    box-shadow: linear-gradient(pink, orange);
+}
+input {
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+}
+.createAccount {
+    background: #ff3f6c;
+    color:white;
+    font-size: 15px;
+}

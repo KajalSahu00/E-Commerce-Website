@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if messages %} 
+<ul class='messages'>
+    {% for message in messages %}
+        <h2><li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li></h2>
+    {% endfor %}
+</ul>
+{% endif %}
+<form action="verify_otp/" method="post" class="account">
+    {% csrf_token %}
+    <input type="text" placeholder="otp" id="id_mobile", name="otp">
+    <br>
+    <br>
+    <input type="submit" value="Verify" class="continue">
+</form>
+{% endblock %}

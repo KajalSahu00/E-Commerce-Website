@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    background-color: #fec5bb;
+}
+.account {
+    width: 400px;
+    height: 400px;
+    background: white;
+    padding: 40px;
+    transform: translate(150%, 8%);
+    border: 2px solid black;
+}
+.pink {
+    color: #ff3f6c;
+}
+
+.phone {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: rgb(201, 197, 197);
+}
+input {
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+}
+.continue {
+    background: #ff3f6c;
+    color:white;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+}

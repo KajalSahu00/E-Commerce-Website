@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load cart %}
+{% block content %}
+{% if messages %} 
+    <ul class='messages'>
+        {% for message in messages %}
+            <h2><li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li></h2>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h1 class="title">Your Cart</h1>
+    <div class="cart">
+        <table>
+            <tr>
+                <th><h3>S.No</h3></th>
+                <th><h3>Name</h3></th>
+                <th><h3>Image</h3></th>
+                <th><h3>Quantity</h3></th>
+                <th><h3>Price</h3></th>
+            </tr>
+            {% for product in products %}
+            <tr>
+                <th>{{ forloop.counter }}</th>
+                <th>{{ product.name }}</th>
+                <th><img src="{{ product.image.url }}" alt="" class='small'></th>
+                <th>
+                    <div class="quantity">
+                        <form action="quantity/" method="post">
+                            {% csrf_token %}
+                            <input hidden type="text" name='product_id' value={{product.id}}>
+                            <input type="submit" name='change_quantity' value='-' class='minus'>
+                        </form>
+                        {{ product.id|product_quantity:request.session.cart}}
+                        <form action="quantity/" method="post">
+                            {% csrf_token %}
+                            <input hidden type="text" name='product_id' value={{product.id}}>
+                            <input type="submit" name='change_quantity' value='+' class='minus'>
+                        </form>
+                    </div>
+                </th>
+                <th>{{ product.price }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <h2>Total Price: {{products|total_price:request.session.cart}}</h2>
+    <br>
+    <br>
+    <form action="{% url 'orders:checkout' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Checkout" class="checkout">
+    </form>
+{% endblock %}
