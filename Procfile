@@ -1,0 +1,1 @@
+web: guincorn online_store.wsgi
